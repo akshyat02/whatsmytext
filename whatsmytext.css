@@ -1,0 +1,335 @@
+:root {
+    --bg: #e0e5ec;
+    --col: #1b1b1b;
+    --ls: #ffffff;
+    --ds: #a3b1c6;
+    --del: #ff0000;
+    --placeholdercol: rgba(0, 0, 0, 0.4);
+  }
+
+  html[data-theme='light'] {
+    --bg: #e0e5ec;
+    --col: #1b1b1b;
+    --ls: #ffffff;
+    --ds: #a3b1c6;
+    --del: #ff0000;
+    --evendiv: #e5e9e7;
+    --placeholdercol: rgba(0, 0, 0, 0.4);
+  }
+
+  html[data-theme='dark'] {
+    --bg: #1b1b1b;
+    --col: #e0e5e6;
+    --ls: #222222;
+    --ds: #0f0f0f;
+    --del: #ff1d1d;
+    --evendiv: #262626;
+    --placeholdercol: rgba(255, 255, 255, 0.2);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  html {
+    font-size: 16px;
+    font-family: 'Gochi Hand', cursive;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  #site-header {
+    font-family: 'Indie Flower', cursive;
+    position: fixed;
+    top: 0;
+    width: 99vw;
+    z-index: 9999;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    
+  }
+  .header-title{
+    font-size: 180%;
+    margin-top: 2px;
+    /* margin-right: 10px; */
+    color: var(--col);
+    text-shadow: -3px -4px 3px var(--ls), 2px 4px 2px var(--ds);
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px var(--col);
+  }
+  #theme-toggle {
+    margin-left: 20px;
+  }
+  .modecontainer{
+    margin-left: 20px; 
+    height: 50px; 
+    width: 50px; 
+    display: flex; 
+    align-items: center;
+    transition: width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+
+  .container {
+    width: 100%;
+    top: 60px;
+    position: relative;
+    border-radius: 10px;
+    padding-bottom: 120px;
+  }
+
+  #site-footer {
+    color: white;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .myTodo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .todoList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 10px auto;
+    align-items: center;
+    padding: 14px;
+    border-radius: 5px;
+    min-height: 40px;
+    font-weight: normal;
+    font-size: large;
+    flex-wrap: wrap;
+    min-width: 220px;
+    width: 90%;
+    max-width: 375px;
+    color: var(--col);
+    background: var(--bg);
+    box-shadow: 2px 13px 15px var(--ds),
+      -15px -15px 100px var(--ls);
+  }
+
+  .deleteTask {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    border: 0;
+    color: var(--del);
+    font-size: medium;
+    -webkit-text-stroke: 1px var(--del);
+    outline: none;
+    align-items: center;
+    background: var(--bg);
+    box-shadow: 5px 5px 9px var(--ds), 0px -2px 5px var(--ls);
+  }
+
+  .inputvalue {
+    position: fixed;
+    bottom: 0px;
+    left: 1px;
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+    /* background: var(--bg); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* box-shadow: 15px 15px 30px var(--ds),
+      -15px -15px 30px var(--ls); */
+    width: 98vw;
+    margin: auto;
+  }
+
+  .inputVal {
+    font-family: 'Gochi Hand', cursive;
+    color: var(--col);
+    min-width: 220px;
+    width: 60%;
+    max-width: 300px;
+    height: 42px;
+    margin: 2px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 0px solid white;
+    background-color: transparent;
+    cursor: text;
+    letter-spacing: 0.8px;
+    background: var(--bg);
+    box-shadow: inset 4px 10px 15px var(--ds),
+      inset -15px -15px 30px var(--ls);
+    resize: none;
+    white-space: pre-wrap;
+
+  }
+
+  .inputVal::placeholder {
+    color: var(--placeholdercol);
+  }
+
+  .inputVal:focus {
+    border: 0;
+    outline: none;
+  }
+
+  .pText {
+    width: 85%;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  .btns {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    color: var(--col);
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    margin: 5px;
+    border: 0;
+    cursor: pointer;
+    -webkit-text-stroke: 1px var(--col);
+    background: var(--bg);
+    box-shadow: 13px 1px 8px var(--ds),
+      -5px -8px 9px var(--ls);
+
+
+  }
+
+  .btns:active,
+  .btns:focus {
+    outline: none;
+    border-style: outset;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+
+  #scrollToTopBtn,
+  #scrollToBottomBtn {
+    display: none;
+    position: fixed;
+    bottom: 75px;
+    right: 5vw;
+    z-index: 100;
+    border: none;
+    outline: none;
+    height: 42px;
+    width: 42px;
+    background-color: var(--bg);
+    color: var(--col);
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+    /* transition: all 1s ease-out; */
+  }
+
+
+  #scrollToBottomBtn {
+    display: block;
+  }
+
+  #site-footer {
+    position: relative;
+    color: var(--col);
+    text-shadow: -1px -1px 5px var(--ls), 1px 1px 3px var(--ds);
+    letter-spacing: 1px;
+    font-weight: 800;
+  }
+
+  /* For toggle button */
+  #checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .label {
+    width: 40px;
+    height: 20px;
+    background-color: rgb(0,0,0,0.6);
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+    position: relative;
+    transform: scale(1.5);
+  }
+
+  .ball {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(35, 175, 251);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+
+  .checkbox:checked+.label .ball {
+    transform: translateX(20px);
+  }
+
+  .fa-moon {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .fa-sun {
+    color: yellow;
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  /* end of toggle button */
+  #commandlist{
+    margin: auto;
+  }
+  td{
+    font-size: small;
+    font-weight: 600;
+    color: var(--col);
+    opacity: 0.6 !important;
+  }
+  
+  .command{
+    text-align: right;
+  }
+  .divider{
+    text-align: center;
+    padding: 0 7px;
+  }
+  .commandusage{
+    text-align: left;
+  }
