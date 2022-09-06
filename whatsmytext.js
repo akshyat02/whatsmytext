@@ -29,8 +29,10 @@
     var targetTheme = "light";
     if (currentTheme === "light") {
       targetTheme = "dark";
+      document.querySelector('meta[name="theme-color"').setAttribute('content', '#1b1b1b')
     } else {
       targetTheme = "light";
+      document.querySelector('meta[name="theme-color"').setAttribute('content', '#e0e5ec')
     }
 
     document.documentElement.setAttribute('data-theme', targetTheme);
@@ -128,6 +130,7 @@
     if (discomode) {
     } else {
       backuptoggle = document.documentElement.getAttribute("data-theme");
+      backupthemecolor = document.querySelector('meta[name="theme-color"]').getAttribute("content");
       discomode = true;
       disco = setInterval(() => {
         toggling();
@@ -138,6 +141,7 @@
     if (discomode) {
       clearInterval(disco);
       document.documentElement.setAttribute('data-theme', backuptoggle);
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', backupthemecolor);
       discomode = false;
     }
   }
